@@ -19,7 +19,7 @@ class AuthController extends Controller
             ]);
         }
     
-        $token = $user->createToken('API_ACCESS_TOKEN')->plainTextToken;
+        $token = $user->createToken('API_ACCESS_TOKEN', ['*'], now()->addWeek())->plainTextToken;
 
         return response()->json([
             'status' => 'success',
